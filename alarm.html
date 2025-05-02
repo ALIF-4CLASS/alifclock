@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alarm Page</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+
+        .alarm-section {
+            text-align: center;
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .alarm-section h2 {
+            margin-bottom: 20px;
+        }
+
+        .alarm-section input {
+            padding: 10px;
+            font-size: 16px;
+            margin-right: 10px;
+        }
+
+        .alarm-section button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .alarm-section button:hover {
+            background-color: #45a049;
+        }
+
+        #alarm-message {
+            margin-top: 20px;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <section class="alarm-section">
+        <h2>Set Alarm</h2>
+        <form id="alarm-form">
+            <label for="alarm-time">Alarm Time:</label>
+            <input type="time" id="alarm-time" required>
+            <button type="submit">Set Alarm</button>
+        </form>
+        <div id="alarm-message"></div>
+    </section>
+
+    <script>
+        const alarmForm = document.getElementById('alarm-form');
+        const alarmMessage = document.getElementById('alarm-message');
+        let alarmTime = null;
+
+        alarmForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            alarmTime = document.getElementById('alarm-time').value;
+            alarmMessage.textContent = `Alarm set for ${alarmTime}`;
+        });
+
+        function checkAlarm() {
+            if (!alarmTime) return;
+
+            const now = new Date();
+            const currentTime = now.toTimeString().slice(0, 5);
+
+            if (currentTime === alarmTime) {
+                alarmMessage.textContent = 'Alarm ringing!';
+                alarmTime = null; // Reset alarm
+                alert('Alarm ringing!');
+            }
+        }
+
+        setInterval(checkAlarm, 1000);
+    </script>
+</body>
+</html>

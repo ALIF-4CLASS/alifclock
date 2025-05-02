@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Clock - Landscape</title> 
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-image: url(ALIF.jpg);
+            font-family: 'Arial', sans-serif;
+            overflow: hidden;
+        }
+        
+        .clock-container {
+            position: relative;
+            left: 10%; /* Moved the clock 10% to the right */
+            width: 80vh;
+            height: 30vh;
+            background-color: #1e1e1e;
+            border-radius: 20px;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        
+        .clock {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .time-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            flex: 1;
+        }
+        
+        .time-value {
+            font-size: 12vh; /* Increased font size for larger display */
+            font-weight: bold;
+            margin-bottom: 1vh;
+            color: #4fc3f7;
+        }
+        
+        .time-label {
+            font-size: 4vh; /* Increased font size for labels */
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #b0bec5;
+        }
+        
+        .separator {
+            font-size: 8vh;
+            color: #4fc3f7;
+            margin: 0 1vh;
+            align-self: flex-end;
+            padding-bottom: 2vh;
+        }
+        
+        @media (orientation: portrait) {
+            .clock-container {
+                width: 90vw;
+                height: 30vw;
+            }
+            
+            .time-value {
+                font-size: 8vw;
+            }
+            
+            .time-label {
+                font-size: 2.5vw;
+            }
+            
+            .separator {
+                font-size: 8vw;
+            }
+        }
+        .side-name {
+            font-size: 4vh; /* Existing font size for the name */
+            font-weight: bold;
+            color: rgb(9, 9, 10);;
+        }
+        .side-name span {
+            content: "BG"; /* Changed side name to BG */
+        }
+        .timetable {
+            position: absolute;
+            top: 10%;
+            left: 5%;
+            background-color: rgba(30, 30, 30, 0.8);
+            size: 0%;
+            color: white;
+            padding: 20px;
+            border-radius: 1px;
+            box-shadow: 0 0 1px rgba(0, 0, 0, 0.5);
+            font-size: 2vh;
+            max-height: 90%; /* Increased max height */
+            width: 30%; /* Increased width */
+            overflow-y: auto;
+        }
+
+        .timetable h2 {
+            text-align: center;
+            margin-bottom: 10px;
+            font-size: 3vh;
+            color: #4fc3f7;
+        }
+
+        .timetable ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .timetable li {
+            margin-bottom: 10px;
+            padding: 10px;
+            background-color: #0e0c0c;
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .timetable li span {
+            font-weight: bold; /* Bold the subject text */
+        }
+        .timetable li.active {
+            background-color: #4caf50; /* Green color for the active period */
+            color: white;
+            font-weight: bold;
+        }
+        .timetable-box {
+            margin-right: 20px; /* Added gap between timetable and clock */
+        }
+        a[href$=".pdf"] {
+            color: rgb(236, 223, 223); /* Change the text color of PDF links to red */
+        }
+    </style>
+</head>
+<body>
+    <div class="side-name">
+        </div>
+    <div class="clock-container">
+        <div class="clock">
+            <div class="time-section">
+                <div class="time-value" id="hours">00</div>
+                <div class="time-label">Hours</div>
+            </div>
+            <div class="separator">:</div>
+            <div class="time-section">
+                <div class="time-value" id="minutes">00</div>
+                <div class="time-label">Minutes</div>
+            </div>
+            <div class="separator">:</div>
+            <div class="time-section">
+                <div class="time-value" id="seconds">00</div>
+                <div class="time-label">Seconds</div>
+            </div>
+        </div>
+    </div>
+    <div class="timetable">
+            <h2>Class 9 Weekly Timetable</h2>
+            <ul>
+                <li><strong>Wednesday:</strong>
+                    <ul>
+                        <li><span>Period 1:</span> 7:45–8:30 AM - hadees</li>
+                        <li><span>Period 2:</span> 8:30–9:15 AM - nhvu</li>
+                        <li><span>Period 3:</span> 9:40– 10:25 AM - English <a href="English_IX_Vol.I.pdf">(pdf)</a></li>
+                        <li><span>Period 4:</span> 10:25–11:10 AM - History <a href="9_e_socialscience1_part1.pdf">(pdf)</a></li>
+                        <li><span>Period 5:</span> 11:20–12:05 AM - Physics <a href="Physics_Eng_part_1.pdf">(pdf)</a></li>
+                        <li><span>Period 6:</span> 12:05–12:50 PM - Aqeeda</li>
+                        <li><span>Period 7:</span> 2:00–2:45 PM - urdu</li>
+                        <li><span>Period 8:</span> 2:50–3:30 PM - maths <a href="Maths_09_Eng_Part_01.pdf">(pdf)</a></li>
+                        <li><span>Period 9:</span> 3:30–4:10 PM - fiqh</li>
+                    </ul>
+                </li>
+                <li><strong>Thursday:</strong>
+                    <ul>
+                        <li><span>Period 1:</span> 7:45–8:30 AM - Aqeeda</li>
+                        <li><span>Period 2:</span> 8:30–9:15 AM - hadees</li>
+                        <li><span>Period 3:</span> 9:40–10:25 AM - adab</li>
+                        <li><span>Period 4:</span> 10:25–11:10 AM - malayalam</li>
+                        <li><span>Period 5:</span> 11:20–12:05 AM - Hindi <a href="https://anshidcode.github.io/anshidpdf/">(pdf)</a></li>
+                        <li><span>Period 6:</span> 12:05–12:50 PM - Physics <a href="Physics_Eng_part_1.pdf">(pdf)</a></li>
+                        <li><span>Period 7:</span> 2:00–2:45 PM - pkv</li>
+                        <li><span>Period 8:</span> 2:50–3:30 PM - pkv</li>
+                        <li><span>Period 9:</span> 3:30–4:10 PM - pkv</li>
+                    </ul>
+                </li>
+                <li><strong>Saturday:</strong>
+                    <ul>
+                        <li><span>Period 1:</span> 7:45–8:30 AM - geography</li>
+                        <li><span>Period 2:</span> 8:30–9:15 AM - TSAWF</li>
+                        <li><span>Period 3:</span> 9:40–10:25 AM - CHEMESTRY</li>
+                        <li><span>Period 4:</span> 10:25–11:10 AM - URDU</li>
+                        <li><span>Period 5:</span> 11:20–12:05 AM - FIOH</li>
+                        <li><span>Period 6:</span> 12:05–12:50 PM - Hindi <a href="HINDI_1.pdf">(pdf)</a></li>
+                        <li><span>Period 7:</span> 2:00–2:45 PM - Aqeeda</li>
+                        <li><span>Period 8:</span> 2:50–3:30 PM - T&C</li>
+                        <li><span>Period 9:</span> 3:30–4:10 PM - NHVU</li>
+                    </ul>
+                </li>
+                <li><strong>Sunday:</strong>
+                    <ul>
+                        <li><span>Period 1:</span> 7:45–8:30 AM - malayalam</li>
+                        <li><span>Period 2:</span> 8:30–9:15 AM - FIQH</li>
+                        <li><span>Period 3:</span> 9:40–10:25 AM - T&C</li>
+                        <li><span>Period 4:</span> 10:25–11:10 AM - BIOLOGY</li>
+                        <li><span>Period 5:</span> 11:20–12:05 AM - English <a href="English_IX_Vol.I.pdf">(pdf)</a></li>
+                        <li><span>Period 6:</span> 12:05–12:50 PM - MATHS <a href="Maths_09_Eng_Part_01.pdf">(pdf)</a></li>
+                        <li><span>Period 7:</span> 2:00–2:45 PM - ADAB</li>
+                        <li><span>Period 8:</span> 2:50–3:30 PM - URDU</li>
+                        <li><span>Period 9:</span> 3:30–4:10 PM - HADEES</li>
+                    </ul>
+                </li>
+                <li><strong>Monday:</strong>
+                    <ul>
+                        <li><span>Period 1:</span> 7:45–8:30 AM - TAREEQ</li>
+                        <li><span>Period 2:</span> 8:30–9:15 AM - HADEES</li>
+                        <li><span>Period 3:</span> 9:40–10:25 AM - FIQH</li>
+                        <li><span>Period 4:</span> 10:25–11:10 AM - IT</li>
+                        <li><span>Period 5:</span> 11:20–12:05 AM - TASWF</li>
+                        <li><span>Period 6:</span> 12:05–12:50 PM - CHEMESTRY</li>
+                        <li><span>Period 7:</span> 2:00–2:45 PM - ADAB</li>
+                        <li><span>Period 8:</span> 2:50–3:30 PM - NAHVU</li>
+                        <li><span>Period 9:</span> 3:30–4:10 PM - History</li>
+                    </ul>
+                </li>
+                <li><strong>Thuesday:</strong>
+                    <ul>
+                        <li><span>Period 1:</span> 7:45–8:30 AM - NAHVU</li>
+                        <li><span>Period 2:</span> 8:30–9:15 AM - malayalam</li>
+                        <li><span>Period 3:</span> 9:40–10:25 AM - BIOLOGY</li>
+                        <li><span>Period 4:</span> 10:25–11:10 AM - Aqeeda</li>
+                        <li><span>Period 5:</span> 11:20–12:05 AM - fiqh</li>
+                        <li><span>Period 6:</span> 12:05–12:50 PM - TAREEQ</li>
+                        <li><span>Period 7:</span> 2:00–2:45 PM - English <a href="English_IX_Vol.I.pdf">(pdf)</a></li>
+                        <li><span>Period 8:</span> 2:50–3:30 PM - MATHS <a href="Maths_09_Eng_Part_01.pdf">(pdf)</a></li>
+                        <li><span>Period 9:</span> 3:30–4:10 PM - ADAB</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    <div class="yt-link" style="text-align: center; margin-top: 25px; position: absolute; bottom: 5%; left: 50%; transform: translateX(-50%);">
+            <a href="https://www.youtube.com" target="https://www.youtube.com/" style="text-decoration: none; color: #4fc3f7; font-size: 2vh;">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/4/42/YouTube_icon_%282013-2017%29.png" alt="YouTube" style="width: 30px; height: 30px; vertical-align: middle; margin-right: 10px;">
+                YouTube
+            </a>
+        </div>
+
+    <script>
+        function updateClock() {
+            const now = new Date();
+
+            let hours = now.getHours();
+            const minutes = now.getMinutes().toString().padStart(2, '0');
+            const seconds = now.getSeconds().toString().padStart(2, '0');
+            const ampm = hours >= 12 ? 'PM' : 'AM';
+
+            hours = hours % 12;
+            hours = hours ? hours : 12; // Convert hour '0' to '12'
+            hours = hours.toString().padStart(2, '0');
+
+            document.getElementById('hours').textContent = hours;
+            document.getElementById('minutes').textContent = minutes;
+            document.getElementById('seconds').textContent = seconds;
+
+            // Add AM/PM indicator
+            if (!document.getElementById('ampm')) {
+                const ampmElement = document.createElement('div');
+                ampmElement.id = 'ampm';
+                ampmElement.style.fontSize = '2.5vh';
+                ampmElement.style.color = '#b0bec5';
+                ampmElement.textContent = ampm;
+                document.querySelector('.clock-container').appendChild(ampmElement);
+            } else {
+                document.getElementById('ampm').textContent = ampm;
+            }
+        }
+        
+        // Update the clock immediately and then every second
+        updateClock();
+        setInterval(updateClock, 1000);
+
+        function highlightCurrentPeriod() {
+            const timetable = [
+                { start: "07:45", end: "08:30", element: document.querySelectorAll('.timetable li')[0] },
+                { start: "08:30", end: "09:15", element: document.querySelectorAll('.timetable li')[1] },
+                { start: "09:40", end: "10:25", element: document.querySelectorAll('.timetable li')[2] },
+                { start: "10:25", end: "11:10", element: document.querySelectorAll('.timetable li')[3] },
+                { start: "11:20", end: "12:05", element: document.querySelectorAll('.timetable li')[4] },
+                { start: "12:05", end: "12:50", element: document.querySelectorAll('.timetable li')[5] },
+                { start: "14:00", end: "14:45", element: document.querySelectorAll('.timetable li')[6] },
+                { start: "14:50", end: "15:30", element: document.querySelectorAll('.timetable li')[7] },
+                { start: "15:30", end: "16:10", element: document.querySelectorAll('.timetable li')[8] }
+            ];
+
+            const now = new Date();
+            const currentTime = `${now.getHours().toString().padStart(2, '0')}:${now.getMinutes().toString().padStart(2, '0')}`;
+
+            timetable.forEach(period => {
+                if (currentTime >= period.start && currentTime <= period.end) {
+                    period.element.classList.add('active');
+                } else {
+                    period.element.classList.remove('active');
+                }
+            });
+        }
+
+        // Update the highlighted period every minute
+        highlightCurrentPeriod();
+        setInterval(highlightCurrentPeriod, 60000);
+
+        function updateDate() {
+            const now = new Date();
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            const formattedDate = now.toLocaleDateString('en-US', options);
+
+            const dateElement = document.getElementById('current-date');
+            dateElement.textContent = formattedDate;
+        }
+
+        // Create a new box for the date above the clock
+        const dateBox = document.createElement('div');
+        dateBox.id = 'current-date';
+        dateBox.style.width = '40vh'; // Increased width
+        dateBox.style.height = '15vh'; // Increased height
+        dateBox.style.backgroundColor = '#1e1e1e';
+        dateBox.style.borderRadius = '10px';
+        dateBox.style.boxShadow = '0 0 10px rgba(0, 0, 0, 0.5)';
+        dateBox.style.display = 'flex';
+        dateBox.style.justifyContent = 'center';
+        dateBox.style.alignItems = 'center';
+        dateBox.style.color = '#b0bec5';
+        dateBox.style.fontSize = '3vh';
+        dateBox.style.marginBottom = '10px';
+
+        // Move the date box to the upper part of the clock
+        dateBox.style.position = 'absolute';
+        dateBox.style.top = '5%';
+        dateBox.style.left = '50%';
+        dateBox.style.transform = 'translateX(-50%)';
+
+        // Insert the date box above the clock container
+        const clockContainer = document.querySelector('.clock-container');
+        clockContainer.parentNode.insertBefore(dateBox, clockContainer);
+
+        // Call the function to display the date
+        updateDate();
+
+        function showTodaysTimetable() {
+            const now = new Date();
+            const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+            const today = days[now.getDay()];
+
+            // Hide all timetable entries
+            const allDays = document.querySelectorAll('.timetable > ul > li');
+            allDays.forEach(day => day.style.display = 'none');
+
+            // Show only today's timetable
+            const todaysTimetable = Array.from(allDays).find(day => day.querySelector('strong').textContent.includes(today));
+            if (todaysTimetable) {
+                todaysTimetable.style.display = 'block';
+            }
+        }
+
+        // Call the function to display today's timetable
+        showTodaysTimetable();
+    </script>
+    <script src="googlec2056a58af3643be.html"></script>
+</body>
+</html>

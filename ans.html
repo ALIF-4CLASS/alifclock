@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Clock</title>
+    <meta name="google-site-verification" content="PEj4e5hL_Fb7b9KL7KD3KTQdWlt3ZxytWqmyJTpnHA4" />
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            font-family: 'Arial', sans-serif;
+        }
+        .container {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        .clock-container {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .clock {
+            position: relative;
+            width: 260px;
+            height: 260px;
+            background: transparent;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+        }
+        .hand {
+            position: absolute;
+            bottom: 50%;
+            left: 50%;
+            transform-origin: bottom;
+            border-radius: 10px;
+        }
+        .hour-hand {
+            width: 6px;
+            height: 80px;
+            background: #ffffff;
+            transform: rotate(0deg);
+        }
+        .minute-hand {
+            width: 4px;
+            height: 100px;
+            background: #ffffff;
+            transform: rotate(0deg);
+        }
+        .second-hand {
+            width: 2px;
+            height: 120px;
+            background: #ff4d4d;
+            transform: rotate(0deg);
+        }
+        .center-dot {
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            background: #ffffff;
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .number {
+            position: absolute;
+            color: #ffffff;
+            font-size: 18px;
+            font-weight: bold;
+            text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+            transform: translate(-50%, -50%);
+        }
+        .name {
+            color: #ffffff;
+            font-size: 36px;
+            font-weight: bold;
+            text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            letter-spacing: 2px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="name">Alif Union</div>
+        <div class="clock-container">
+            <div class="clock">
+                <div class="hand hour-hand"></div>
+                <div class="hand minute-hand"></div>
+                <div class="hand second-hand"></div>
+                <div class="center-dot"></div>
+                <div class="number" style="top: 20px; left: 50%;">12</div>
+                <div class="number" style="top: 50px; left: 75%;">1</div>
+                <div class="number" style="top: 90px; left: 90%;">2</div>
+                <div class="number" style="top: 130px; left: 95%;">3</div>
+                <div class="number" style="top: 170px; left: 90%;">4</div>
+                <div class="number" style="top: 210px; left: 75%;">5</div>
+                <div class="number" style="bottom: 20px; left: 50%;">6</div>
+                <div class="number" style="top: 210px; left: 25%;">7</div>
+                <div class="number" style="top: 170px; left: 10%;">8</div>
+                <div class="number" style="top: 130px; left: 5%;">9</div>
+                <div class="number" style="top: 90px; left: 10%;">10</div>
+                <div class="number" style="top: 50px; left: 25%;">11</div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function updateClock() {
+            const now = new Date();
+            const hours = now.getHours() % 12;
+            const minutes = now.getMinutes();
+            const seconds = now.getSeconds();
+            
+            const hourDeg = (hours * 30) + (minutes * 0.5);
+            const minuteDeg = minutes * 6;
+            const secondDeg = seconds * 6;
+            
+            document.querySelector('.hour-hand').style.transform = `rotate(${hourDeg}deg)`;
+            document.querySelector('.minute-hand').style.transform = `rotate(${minuteDeg}deg)`;
+            document.querySelector('.second-hand').style.transform = `rotate(${secondDeg}deg)`;
+        }
+        
+        setInterval(updateClock, 1000);
+        updateClock();
+    </script>
+</body>
+</html>

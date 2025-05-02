@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Portfolio</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <!-- EmailJS SDK -->
+    <script src="https://cdn.emailjs.com/sdk/2.4.0/email.min.js"></script>
+    <style>
+        /* Custom CSS for enhanced styling */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .portfolio-card {
+            transition: transform 0.3s ease;
+        }
+        .portfolio-card:hover {
+            transform: translateY(-5px);
+        }
+        .social-icon {
+            transition: color 0.3s ease;
+        }
+        .social-icon:hover {
+            color: #3b82f6;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <!-- Initialize EmailJS -->
+    <script>
+        (function(){
+            emailjs.init("YOUR_EMAILJS_USER_ID"); // Replace with your EmailJS User ID
+        })();
+    </script>
+
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg fixed w-full z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <a href="#" class="text-2xl font-bold text-gray-800">My Portfolio</a>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <a href="#home" class="text-gray-600 hover:text-blue-500">Home</a>
+                    <a href="#portfolio" class="text-gray-600 hover:text-blue-500">Portfolio</a>
+                    <a href="#contact" class="text-gray-600 hover:text-blue-500">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center justify-center bg-gradient-to-r from-blue-500 to-indigo-600 text-white">
+        <div class="text-center max-w-2xl mx-auto px-4">
+            <h1 class="text-4xl md:text-6xl font-bold mb-4">Welcome to ANSHIWEB</h1>
+            <p class="text-lg md:text-xl mb-6">I'm a passionate developer creating innovative solutions.</p>
+            <a href="https://www.canva.com/design/DAGl7J8hktA/53V5LEPfQqAav_-2QUFIJw/watch?utm_content=DAGl7J8hktA&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=hca7c33b84a" class="bg-white text-blue-600 px-6 py-3 rounded-full font-semibold hover:bg-gray-100">learn about me </a>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-12">My Work</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Portfolio Item -->
+                <div class="portfolio-card bg-gray-100 rounded-lg shadow-lg overflow-hidden">
+                    <img src="c1fde8af00b278f7dcb1de5251627dd2.jpg" alt="Project 1" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">PHOTOSHOP</h3>
+                        <p class="text-gray-600">A web application built with React and Node.js.</p>
+                    </div>
+                </div>
+                <div class="portfolio-card bg-gray-100 rounded-lg shadow-lg overflow-hidden">
+                    <img src="ecd04e4454e02f3f4a1f00ac4ac4a9b2.jpg" alt="Project 2" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">LIGHTROOM</h3>
+                        <p class="text-gray-600">E-commerce platform with payment integration.</p>
+                    </div>
+                </div>
+                <div class="portfolio-card bg-gray-100 rounded-lg shadow-lg overflow-hidden">
+                    <img src="f454db8bb3451d8feefeb6203bac45f1.jpg" alt="Project 3" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">CANVA</h3>
+                        <p class="text-gray-600">Mobile app for task management.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Instagram Feed Section -->
+    <section id="instagram" class="py-20 bg-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Elfsight Instagram Widget -->
+            <div class="elfsight-app-YOUR_ELFSIGHT_APP_ID"></div>
+            <!-- Load Elfsight Widget Script -->
+            <script src="https://static.elfsight.com/platform/platform.js" data-use-service-core defer></script>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-12">Get in Touch</h2>
+            <form id="contact-form" class="max-w-lg mx-auto">
+                <div class="mb-4">
+                    <label for="name" class="block text-gray-700">Name</label>
+                    <input type="text" id="name" name="name" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                </div>
+                <div class="mb-4">
+                    <label for="email" class="block text-gray-700">Email</label>
+                    <input type="email" id="email" name="email" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                </div>
+                <div class="mb-4">
+                    <label for="message" class="block text-gray-700">Message</label>
+                    <textarea id="message" name="message" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="w-full bg-blue-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-600">Send Message</button>
+            </form>
+            <p id="form-status" class="text-center mt-4"></p>
+        </div>
+    </section>
+
+    <!-- Footer with Social Icons -->
+    <footer class="bg-gray-800 text-white py-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-center space-x-6">
+                <a href="https://instagram.com/yourhandle" class="social-icon"><i class="fab fa-instagram fa-2x"></i></a>
+                <a href="https://linkedin.com/in/yourhandle" class="social-icon"><i class="fab fa-linkedin fa-2x"></i></a>
+                <a href="https://github.com/yourhandle" class="social-icon"><i class="fab fa-github fa-2x"></i></a>
+                <a href="mailto:your.email@example.com" class="social-icon"><i class="fas fa-envelope fa-2x"></i></a>
+            </div>
+            <p class="text-center mt-6">© 2025 My Portfolio. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Form Submission -->
+    <script>
+        document.getElementById('contact-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const formStatus = document.getElementById('form-status');
+            formStatus.textContent = 'Sending...';
+
+            emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', {
+                name: this.name.value,
+                email: this.email.value,
+                message: this.message.value
+            })
+            .then(function() {
+                formStatus.textContent = 'Message sent successfully!';
+                formStatus.classList.add('text-green-500');
+                document.getElementById('contact-form').reset();
+            }, function(error) {
+                formStatus.textContent = 'Failed to send message. Please try again.';
+                formStatus.classList.add('text-red-500');
+                console.error('EmailJS error:', error);
+            });
+        });
+    </script>
+    <script src='https://cdn.jotfor.ms/s/umd/latest/for-embedded-agent.js'></script>
+<script>
+  window.addEventListener("DOMContentLoaded", function() {
+    window.AgentInitializer.init({
+      agentRenderURL: "https://agent.jotform.com/01967c2f2174711aa0e8a3651d3b24ccab15",
+      rootId: "JotformAgent-01967c2f2174711aa0e8a3651d3b24ccab15",
+      formID: "01967c2f2174711aa0e8a3651d3b24ccab15",
+      queryParams: ["skipWelcome=1", "maximizable=1"],
+      domain: "https://www.jotform.com",
+      isDraggable: false,
+      background: "linear-gradient(180deg, #6C73A8 0%, #6C73A8 100%)",
+      buttonBackgroundColor: "#0066C3",
+      buttonIconColor: "#FFFFFF",
+      variant: false,
+      customizations: {
+        "greeting": "Yes",
+        "greetingMessage": "Hi! How can I assist you?",
+        "openByDefault": "No",
+        "pulse": "Yes",
+        "position": "right",
+        "autoOpenChatIn": "0"
+      },
+      isVoice: false,
+    });
+  });
+</script>
+clock <html></html><script src="https://script.google.com/macros/s/AKfycbx_63eu-yyh0rQvawnH_7L3pXMlPuTr_-e8Qy-Y8-stwkKAapatFcvESo4GzMT6sJ8ZmA/exec"></script>
+</body>
+</html>
